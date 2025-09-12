@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="home.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+
+    <div class="flex items-center space-x-2">
+      <img src="LOGOnew.jpg" alt="Logo" class="h-14 w-14 object-contain" />
+      <span class="text-xl font-bold text-gray-800">AceTheJob</span>
+    </div>
+   
+    <ul id="list1">
+      
+      <li><a href="/">Home</a></li>
+      <li><a href="#column">Contact Us</a></li>
+      <li><a href="#column">About Us</a></li>
+      <li><a href="#column">Services</a></li>
+      <li><a href="/signup">Interview</a></li>
+      <li><a href="/signup">SignUp</a></li>
+    </ul>
+  </nav>
+
+  <!-- Content (Page 1: Image and Video) -->
+  <div class="container">
+    <div class="left">
+      <h1>A better way to improve your interview chances and skills</h1>
+      <p>Prepare with confidence using our AI-driven mock interview simulator. Enhance your skills, receive instant feedback, and land your dream job!</p>
+       <a href="/signup" class="start-btn">Start Interview</a> 
+    </div>
+    <div class="right">
+      <div class="image-column">
+        <img src="image1.png" alt="Interview Coaching">
+        <img src="image2.jpeg.jpg" alt="Career Growth">
+      </div>
+      <video autoplay loop muted >
+        <source src="aivideo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+
+  <!-- Auto-sliding Card Section -->
+  <section class="content-section bg-white py-12 overflow-hidden">
+    <h2 class="text-3xl font-semibold text-center mb-10 font-bold">Why Choose Us?</h2>
+    <div class="relative w-full">
+      <div id="carousel" class="flex gap-6 w-max">
+        <!-- Cards will be injected here via JS -->
+      </div>
+    </div>
+  </section>
+  
+
+<div class="page-break"></div>
+
+  <!-- Company Logos Section -->  
+<div class="company">
+<div class="logo-section">
+  <h1 class="main-title">Train Like a Pro. Get Hired by the Best.</h1>
+  
+  <div class="logo-grid">
+
+    <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+      <div class="logo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+      </div>
+    </a>
+
+    <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">
+      <div class="logo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+      </div>
+    </a>
+
+    <a href="https://www.apple.com" target="_blank" rel="noopener noreferrer">
+      <div class="logo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+      </div>
+    </a>
+
+    <a href="https://www.microsoft.com" target="_blank" rel="noopener noreferrer">
+      <div class="logo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
+      </div>
+    </a>
+
+    <a href="https://www.ibm.com" target="_blank" rel="noopener noreferrer">
+      <div class="logo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM">
+      </div>
+    </a>
+
+    
+
+    <a href="https://www.samsung.com" target="_blank" rel="noopener noreferrer">
+      <div class="logo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung">
+      </div>
+    </a>
+
+    <a href="https://www.oracle.com" target="_blank" rel="noopener noreferrer">
+      <div class="logo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" alt="Oracle">
+      </div>
+    </a>
+
+    </a>
+
+    <a href="https://www.dell.com" target="_blank" rel="noopener noreferrer">
+      <div class="logo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Dell_Logo.svg" alt="Dell">
+      </div>
+    </a>
+
+    <a href="https://www.intel.com" target="_blank" rel="noopener noreferrer">
+      <div class="logo-item">
+        <img src="logo\intel.png" alt="Tata">
+      </div>
+    </a>
+    
+    <a href="https://www.infosys.com" target="_blank" rel="noopener noreferrer">
+      <div class="logo-item">
+        <img src="logo\infosys.png" alt="Infosys">
+      </div>
+    </a>
+    
+    <a href="https://www.flipkart.com" target="_blank" rel="noopener noreferrer">
+      <div class="logo-item">
+        <img src="logo\flipkart.png" alt="Flipkart">
+      </div>
+    </a>
+    <a href="https://www.adobe.com" target="_blank" rel="noopener noreferrer">
+      <div class="logo-item">
+        <img src="logo\adobe.png" alt="Flipkart">
+      </div>
+    </a>
+    
+    
+
+  </div>
+</div>
+</div>
+
+<div class="page-break"></div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="column" id="column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/" class="text-gray-400 hover:text-white">Home</a></li>
+          <li><a href="#column" class="text-gray-400 hover:text-white">Contact Us</a></li>
+          <li><a href="#column" class="text-gray-400 hover:text-white">About Us</a></li>
+          <li><a href="#column" class="text-gray-400 hover:text-white">Services</a></li>
+        </ul>
+      </div>
+      <div class="column" id="column">
+        <h3>About Us</h3>
+        <p>We are a passionate team of developers — <br>
+          Kashish Pimpalshende (team leader), <br>
+          Gayatri Chippawar, <br>
+          Disha Sakarkar, <br>
+          Treksha Pachdhare, and <br>
+          Sanju Mandal <br>
+          — on a mission to transform how candidates prepare for interviews. <br>
+          Our AI-powered mock interview blends technology and insight to help you gain confidence, sharpen your skills, and land your dream job.
+        </p>
+      </div>
+      <div class="column" id="column">
+        <h3>Services</h3>
+        <p>Our platform offers personalized, AI-driven mock interviews designed to simulate real-life experiences. <br>
+          ✦ Generate domain-specific questions  <br>
+          ✦ Practice with voice input <br>
+          ✦ Get instant feedback and improvement suggestions <br>
+          ✦ Built-in webcam and mic support for realism <br>
+          Your interview success starts here! <br>
+        </p>
+      </div>
+      <div class="column" id="column">
+        <h3>Contact Us</h3>
+        <p>
+          Have questions, feedback, or want to collaborate ? <br>
+          Reach out to our team—we are here to help you succeed! <br>
+          &#128231; Drop us a message anytime and we will get back to you as soon as possible.<br><br>
+          <b>Email</b>: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kashishpimpalshende@gmail.com" target="_blank">kashishpimpalshende@gmail.com</a><br>
+          <b>Click On E-mail &#9757; . </b>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const cardData = [
+      {
+        img: "recruitment-6838250_640.png",
+        alt: "Feedback",
+        title: "Personalized Feedback",
+        desc: "Receive tailored advice to improve every answer you give."
+      },
+      {
+        img: "mock_ai_int.png",
+        alt: "Simulation",
+        title: "Real-time Simulation",
+        desc: "Experience interviews just like real ones, anytime, anywhere."
+      },
+      {
+        img: "set_goal.png",
+        alt: "Questions",
+        title: "Expert-Level Questions",
+        desc: "Practice with industry-standard questions curated by professionals."
+      },
+      {
+        img: "practice.png",
+        alt: "Growth",
+        title: "Career Growth",
+        desc: "Our tools are built to guide you toward long-term success."
+      },
+      {
+        img: 'smartprep.png',
+        alt: 'Smart Prep',
+        title: 'Smart Prep',
+        desc: 'Adaptive preparation materials based on your weak areas.'
+      },
+    ];
+  
+    const carousel = document.getElementById("carousel");
+  
+    function createCard(card) {
+      const cardElement = document.createElement("div");
+      cardElement.className = "card p-4 text-center bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.25)]";
+      cardElement.innerHTML = `
+        <img src="${card.img}" alt="${card.alt}" id="caceer">
+        <h3 class="font-bold text-2xl">${card.title}</h3>
+        <p class="text-gray-500 text-lg">${card.desc}</p>
+      `;
+      return cardElement;
+    }
+  
+    // Add the cards twice to create infinite loop illusion
+    for (let i = 0; i < 3; i++) {
+      cardData.forEach(card => {
+        const cardEl = createCard(card);
+        carousel.appendChild(cardEl);
+      });
+    }
+  
+    // Add animation class
+    carousel.classList.add("animate-slide");
+  </script> 
+</body>
+</html>

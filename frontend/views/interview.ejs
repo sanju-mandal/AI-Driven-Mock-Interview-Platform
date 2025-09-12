@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="inter2page.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Interview</title>
+    <link rel="stylesheet" href="interview.css">
+    
+</head>
+
+<body>
+    <div class="video-background">
+        <video autoplay muted loop id="background-video">
+            <source src="/vdo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h1><b>Dashboard</b></h1>
+        </div>
+        <p class="sub-text typewriter" id="typewriter-text"></p>
+        <!-- <h2>Mock Interviews</h2> -->
+
+        <!-- Mock Interviews -->
+        <div class="mock-interviews"> 
+            <div id="dashboard">
+            </div>             
+        </div>
+    </div>
+
+    <input type="checkbox" id="toggle">
+    <label for="toggle" class="add-new" id="please">+ Get Started</label>
+
+    <div class="page2" id="page2">
+        <div class="container" id="infoadd">
+            <label for="toggle" class="go-back" id="please2"><i class="fa-solid fa-xmark" id="l3"></i></label>
+            <h2>Create A New Mock Interview</h2>
+            <form id="mockInterviewForm">
+                <!-- Job Role/Job Position -->
+                <label for="jobRole">Job Role/Job Position</label>
+                <input type="text" id="jobRole" placeholder="Web Developer" list="jobRoleOptions">
+                <datalist id="jobRoleOptions" class="datalist">
+                    <option value="Web Developer"></option>
+                    <option value="Software Engineer"></option>
+                    <option value="Data Scientist"></option>
+                    <option value="UI/UX Designer"></option>
+                    <option value="Project Manager"></option>
+                </datalist>
+            
+                <!-- Job Description -->
+                <label for="jobDesc">Job Description</label>
+                <textarea id="jobDesc" placeholder="Eg:- Job Description"></textarea>
+            
+                <!-- Years of Experience -->
+                <label for="experience">Years of Experience</label>
+                <input type="number" id="experience" placeholder="Eg:- Years of Experience" list="experienceOptions">
+                <datalist id="experienceOptions" class="datalist">
+                    <option value="0"></option>
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                    <option value="5"></option>
+                    <option value="10"></option>
+                </datalist>
+            
+                <!-- Tech Stacks -->
+                <label for="techStack">Tech Stacks</label>
+                <input type="text" id="techStack" placeholder="Eg:- React, Angular, NextJs.." list="techStackOptions">
+                <datalist id="techStackOptions" class="datalist">
+                    <option value="React"></option>
+                    <option value="Angular"></option>
+                    <option value="NextJs"></option>
+                    <option value="Node.js"></option>
+                    <option value="Python"></option>
+                </datalist>
+            
+                <!-- Buttons -->
+                <div class="buttons">
+                    <button type="reset" class="reset">Reset</button>
+                    <button type="submit" class="create" id="create">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="page3" id="page3">
+        <div class="weblive">
+            <div class="questions" id="questionList" style="width: 800px; height: 150px;"></div> 
+            <!-- <button id="speakQuestion" title="Click to hear question 🔊">🔊 Speak</button> -->
+            <div id="speechOutput">
+                <!-- <label for="answer"> &nbsp;&nbsp;Answer : </label>
+                <textarea id="answer" placeholder="&nbsp;&nbsp;Tell your answer.."></textarea> -->
+            </div>
+            <h2>Webcam</h2>
+            <video id="webcam" autoplay playsinline></video>
+            <br>
+            <button id="toggleButton">Enable Webcam</button>
+            <button id="pre-btn">Previous</button>
+            <!-- <button class="mic-btn" id="micToggle">
+                <i id="mic-icon" class="fas fa-microphone-slash"></i>
+            </button> -->
+            
+            <!-- <p id="status">On Mic to Answer</p> -->
+            <button id="next-btn">Next</button>
+            <button id="all-done">Submit</button>
+        </div>
+    </div>
+
+    <div id="page4">
+    </div>
+
+    <!--nav top-->
+    <!-- Navbar -->
+  <nav>
+
+    <div class="flex items-center space-x-2">
+      <img src="LOGOnew.jpg" alt="Logo" class="h-14 w-14 object-contain" />
+      <span class="text-xl font-bold text-gray-800">AceTheJob</span>
+    </div>
+   
+    <ul id="list1">
+      
+      <li><a href="/">Home</a></li>
+      <li><a href="/#column">Contact Us</a></li>
+      <li><a href="/#column">About Us</a></li>
+      <li><a href="/#column">Services</a></li>
+      <li><a href="/interview">Interview</a></li>
+      <li><a href="/signup">SignUp</a></li>
+    </ul>
+  </nav>
+    
+    <script>
+        document.getElementById("please").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+        
+            let form = document.getElementById("page2");
+            form.style.position = "absolute";
+            form.style.top = "50px"; /* Adjust as needed */
+            form.style.left = "0px"; /* Adjust as needed */
+        });
+        
+        document.getElementById("please2").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+        
+            let form = document.getElementById("page2");
+            form.style.position = "absolute";
+            form.style.top = "50px"; /* Adjust as needed */
+            form.style.left = "-2070px"; /* Adjust as needed */
+        });
+        
+        document.getElementById("mockInterviewForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+        });
+        
+        
+        function showSuggestions() {
+            let input = document.getElementById("jobRole").value.toLowerCase();
+            let suggestionsList = document.getElementById("suggestions");
+            suggestionsList.innerHTML = "";
+        
+            if (input.length === 0) return;
+        
+            let filteredRoles = jobRoles.filter(role => role.toLowerCase().includes(input));
+        
+            filteredRoles.forEach(role => {
+                let li = document.createElement("li");
+                li.textContent = role;
+                li.onclick = function() {
+                    document.getElementById("jobRole").value = role;
+                    suggestionsList.innerHTML = "";
+                };
+                suggestionsList.appendChild(li);
+            });
+        }
+        
+        let feedbackArray = [];
+        
+        document.getElementById("mockInterviewForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+        
+            // Get values from the form
+            let jobRole = document.getElementById("jobRole").value.trim();
+            let jobDesc = document.getElementById("jobDesc").value.trim();
+            let experience = document.getElementById("experience").value.trim();
+            let techStack = document.getElementById("techStack").value.trim();
+        
+            // Validate input fields
+            if (jobRole === "" || jobDesc === "" || experience === "" || techStack === "") {
+                alert("Please fill all the fields.");
+                return;
+            }
+        
+        
+            // Move form back to its original absolute position
+            let form = document.getElementById("page2");
+            form.style.position = "absolute";
+            form.style.top = "0px"; /* Adjust as needed */
+            form.style.left = "-2067px"; /* Adjust as needed */
+        
+            // Create a new mock interview block
+            let dashboard = document.getElementById("dashboard");
+            let newBlock = document.createElement("div");
+            newBlock.classList.add("mock-card");
+        
+            let currentTime = new Date().toLocaleString();
+        
+            newBlock.innerHTML = `
+                <h3>${jobRole}</h3>
+                <p><strong>Description:</strong> ${jobDesc}</p>
+                <p><strong>Experience:</strong> ${experience} years</p>
+                <p><strong>Tech Stack:</strong> ${techStack}</p>
+                <p class="timestamp">${currentTime}</p>
+                <div class="card-actions">
+                    <button class="delete-btn">Edit</button>
+                    <button class="start-btn" id="start-btn">Start</button>
+                </div>
+            `;
+        
+            // Append the new block to the dashboard
+            dashboard.appendChild(newBlock);
+        
+            // Clear form after submission
+            document.getElementById("mockInterviewForm").reset();
+        
+        
+            // Question generation logic
+            let questions = [];
+            let currentIndex = 0;
+            let userAnswers = [];
+        
+            document.getElementById("start-btn").addEventListener("click", async () => {
+            const prompt = `Job Position: ${jobRole}, Job Description: ${jobDesc}, Years of Experience: ${experience}, Tech Stacks: ${techStack}. Please give me 5 Interview Questions and Answers in JSON format with 'question' fields. Please ask first question as tell me about yourself. Act like interviewer.`;
+        
+            // Show loading message for questions
+            const questionDiv1 = document.getElementById("questionList");
+            questionDiv1.innerHTML = `<p style="font-size: 20px; font-style: italic;">Generating Interview Questions....</p>`;
+        
+            const response = await fetch("/api/generate", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ prompt }),
+            });
+        
+            const data = await response.json();
+            questions = data.questions;
+            userAnswers = new Array(questions.length).fill(""); // Initialize empty answers
+            currentIndex = 0;
+        
+            displayQuestion();
+            });
+        
+            document.getElementById("next-btn").addEventListener("click", () => {
+            if (questions.length === 0) return;
+        
+        
+            // Save current answer
+            saveCurrentAnswer();
+        
+            // Print current answer in console
+            console.log(`Answer for Question ${currentIndex + 1}:`, userAnswers[currentIndex]);
+        
+            if(currentIndex == questions.length-1){
+                let btn1 = document.getElementById("next-btn");
+                let btn2 = document.getElementById("mic-btn");
+                const btn = document.getElementById("all-done");
+                btn.style.pointerEvents = "auto";
+                btn.style.opacity = 1; // Enable the submit button
+                btn1.remove(); // Remove the next button
+                btn2.remove(); // Remove the mic button
+            }
+        
+        
+            currentIndex++;
+            if (currentIndex < questions.length) {
+                displayQuestion();
+            } else {
+                alert("No more questions!");
+            }
+            });
+        
+        
+            function saveCurrentAnswer() {
+                const textarea = document.getElementById("answer-input");
+                if (textarea) {
+                  userAnswers[currentIndex] = textarea.value;
+                }
+            }
+        
+            function displayQuestion() {
+                const questionDiv = document.getElementById("questionList");
+                const q = questions[currentIndex];
+                const savedAnswer = userAnswers[currentIndex] || "";
+        
+        
+                questionDiv.innerHTML = `<p style="font-size: 20px;"><strong>Question.${currentIndex+1}: </strong>${q.question}</p> <br><br><strong style="font-size: 20px;">Answer: </strong><br><textarea id="answer-input" class="answer-input" rows="5" style="width: 800px; font-size: 16px;">${savedAnswer}</textarea>
+                <br><br><div id="important" style="width: 800px; height: 75px;"><p style="font-size: 16px; font-style: italic;"><b style="color: red;">Important </b>: Please answer the question by using Mic/keyboard and <b>before moving to the next question "off" the mic and then click on next button , if you "on" it</b>. Note That , Once you answered to the question and clicked on next button , you can't go back to the previous question. So, answer properly.</p></div>
+                <button id="mic-btn" style="position:absolute; left: 400px; top: 500px;">Mic on</button>
+                <span id="mic-status" style="margin-left: 10px; color: green;"></span>
+                `;
+
+                
+        
+                console.log(`Current Question ${currentIndex + 1}:`, q.question);
+        
+                const nextBtn = document.getElementById("next-btn");
+                nextBtn.disabled = true; // Disable the button initially
+                nextBtn.style.opacity = 0.5; // Set opacity to indicate disabled state
+                const answerInput = document.getElementById("answer-input");
+        
+        
+                // Enable button when user types with keyboard
+                answerInput.addEventListener("input", () => {
+                    if (answerInput.value.trim() !== "") {
+                        nextBtn.disabled = false;
+                        nextBtn.style.opacity = 1; // Enable the button
+                    } else {
+                        nextBtn.disabled = true;
+                        nextBtn.style.opacity = 0.5; // Disable the button
+                    }
+                });
+
+
+
+                // Speech Recognition logic
+                const micstartBtn = document.getElementById("mic-btn");
+                const micoutput = document.getElementById("answer-input");
+        
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        
+                if (!SpeechRecognition) {
+                alert("Speech Recognition not supported in your browser.");
+                } else {
+                const recognition = new SpeechRecognition();
+                recognition.continuous = true; // keep listening
+                recognition.lang = "en-IN";
+                recognition.interimResults = false;
+        
+                let isRecording = false;
+        
+                micstartBtn.addEventListener("click", () => {
+                    if (!isRecording) {
+                    recognition.start();
+                    isRecording = true;
+                    micstartBtn.textContent = "Mic off";
+                    micstartBtn.style.backgroundColor = "red"; // Change button color to red
+                    } else {
+                    recognition.stop();
+                    isRecording = false;
+                    micstartBtn.textContent = "Mic on";
+                    micstartBtn.style.backgroundColor = "red"; // Change button color back to green
+                    }
+                });
+        
+                document.getElementById("all-done").addEventListener("click", function (event) {
+                    event.preventDefault(); // Prevent default link behavior
+                
+                    let form = document.getElementById("page3");
+                    form.style.position = "absolute";
+                    form.style.top = "75px"; /* Adjust as needed */
+                    form.style.left = "-2055px"; /* Adjust as needed */
+                });
+        
+                recognition.onresult = (event) => {
+                    let transcript = "";
+                    for (let i = event.resultIndex; i < event.results.length; i++) {
+                    transcript += event.results[i][0].transcript + " ";
+                    }
+                    micoutput.value += transcript;
+        
+                    // Enable Next button if input is not empty
+                    if (micoutput.value.trim() !== "") {
+                        document.getElementById("next-btn").disabled = false;
+                        document.getElementById("next-btn").style.opacity = 1; // Enable the button
+                    }
+                };
+        
+                recognition.onerror = (event) => {
+                    console.error("Speech recognition error:", event.error);
+                };
+        
+                }
+        
+        
+            }
+              
+        
+            // Delete functionality
+            newBlock.querySelector(".delete-btn").addEventListener("click", function () {
+                // Bring back the form with previous values
+                document.getElementById("jobRole").value = jobRole;
+                document.getElementById("jobDesc").value = jobDesc;
+                document.getElementById("experience").value = experience;
+                document.getElementById("techStack").value = techStack;
+        
+                // Remove the card
+                
+        
+                // Bring back the form to its original position
+                form.style.position = "absolute";
+                form.style.top = "50px";
+                form.style.left = "0px";
+        
+                document.getElementById("mockInterviewForm").addEventListener("submit", function(event) {
+                    event.preventDefault();
+        
+                    newBlock.remove();
+                    
+                });
+        
+            });
+        
+            document.addEventListener("click", async function(event) {
+                if (event.target.classList.contains("start-btn")) {
+                    let webcamPage = document.getElementById("page3");
+            
+                    // Move the webcam page to a new position
+                    webcamPage.style.position = "absolute";
+                    webcamPage.style.top = "75px"; // Change position as needed
+                    webcamPage.style.left = "75px"; // Change position as needed
+        
+                }
+            });
+        
+            document.getElementById("all-done").addEventListener("click", function() {
+                // Select all mock-card elements
+                let mockCards = document.querySelectorAll(".mock-card");
+            
+                mockCards.forEach((card) => {
+                    // Check if Feedback button already exists to prevent duplication
+                    if (!card.querySelector(".feedback-btn")) {
+                        let feedbackButton = document.createElement("button");
+                        feedbackButton.textContent = "Feedback"; // No nested button or duplicate IDs
+                        feedbackButton.style.backgroundColor = "black"; // Set background color to black
+                        feedbackButton.style.color = "white"; // Set text color to white
+                        feedbackButton.style.borderRadius = "5px"; // Add border radius
+                        feedbackButton.style.padding = "5px 10px"; // Add padding
+                        feedbackButton.classList.add("feedback-btn");
+        
+            
+                        // Find the action buttons div and append the feedback button
+                        let cardActions = card.querySelector(".card-actions");
+                        cardActions.appendChild(feedbackButton);
+                    }
+        
+                    // remove the start button
+                    let startButton = card.querySelector(".start-btn");
+                    if (startButton) {
+                        startButton.remove();
+                    }
+                });
+            }); 
+        
+            document.addEventListener("click", function(event) {
+            if (event.target.classList.contains("feedback-btn")) {
+                let page4 = document.getElementById("page4"); // Select page4
+                page4.style.position = "absolute"; 
+                page4.style.top = "75px"; /* Change as needed */
+                page4.style.left = "45px"; /* Change as needed */
+        
+                // below code is for Feedback page 
+                // generate feedback
+        
+                feedbackArray = new Array(questions.length).fill(""); // Initialize empty feedback array
+        
+                saveCurrentAnswer();
+            
+            
+                // Construct the prompt for Gemini
+                let feedbackPrompt = `You are an AI interview evaluator and let I am a candidate ( you can use "you", to mention the candidate in feedback page ). Based on the following user responses to interview questions, generate feedback in this exact JSON format:
+            
+                {
+                "overallRating": "string (e.g., '8/10')",
+                "areasOfImprovement": "string (e.g., 'Needs to improve on React hooks and lifecycle methods.')",
+                "questions": [
+                    {
+                    "question": "string (the original question)",
+                    "userAnswer": "string (the user answer)",
+                    "userFeedback": "string (evaluate the user's answer and give brief feedback)",
+                    "correctAnswer": "string (the ideal answer)"
+                    }
+                ]
+                }
+            
+                Here are the questions and user answers:\n`;
+        
+                // Show loading message for questions
+            const feedbackDiv1 = document.getElementById("page4");
+            feedbackDiv1.innerHTML = `<p style="font-size: 20px; font-style: italic;">Generating Feedback....</p>`;
+            
+                questions.forEach((q, i) => {
+                feedbackPrompt += `Question ${i + 1}: ${q.question}\n`;
+                feedbackPrompt += `Correct Answer: ${q.answer}\n`;
+                feedbackPrompt += `User Answer: ${userAnswers[i]}\n\n`;
+                });
+            
+                // Send the prompt to your server
+                fetch("/api/generate", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ feedbackPrompt }),
+                })
+                .then(res => res.json())
+                .then(data => {
+                    showFeedbackPage(data.feedback);
+                })
+                .catch(err => {
+                    console.error("Error generating feedback:", err);
+                });
+        
+                function showFeedbackPage(feedbackArray) {
+                    const appContainer = document.getElementById("page4");
+                
+                    // If it's plain text, just show it
+                    if (typeof feedbackArray === "string") {
+                    appContainer.innerHTML = `
+                        <h2>Feedback</h2>
+                        <pre style="white-space: pre-wrap; font-size: 1rem;">${feedbackArray}</pre>
+                    `;
+                    return;
+                    }
+                
+                    // If it's structured JSON, format it
+                    let html = `<h2 style="font-size:24px;"><strong>Interview Feedback</strong></h2><br>`;
+                    html += `<div id="for-end"><i class="fa-solid fa-xmark" id="l3"></i></div>`;
+                    html += `<p style="font-size:20px;"><strong>Great..! Here is your overall feedback.</strong></p>`;
+                    html += `<p style="font-size:20px;"><strong>Your Overall Rating:</strong> ${feedbackArray.overallRating}</p>`;
+                    html += `<p style="font-size:20px;"><strong>Areas of Improvement:</strong> ${feedbackArray.areasOfImprovement}</p><br>`;
+                
+                    html += `<h2 style="margin-top: 50px; font-size:22px;"><strong>Question-wise Feedback : </strong></h2>`;
+                    feedbackArray.questions.forEach((q, index) => {
+                    html += `
+                        <div style="margin-bottom: 20px;">
+                        <p><strong>Q${index + 1}: ${q.question}</strong></p>
+                        <p><strong>Your Answer:</strong> ${q.userAnswer}</p>
+                        <p><strong>Feedback:</strong> ${q.userFeedback}</p>
+                        <p><strong>Correct Answer:</strong> ${q.correctAnswer}</p>
+                        </div>
+                        <br><br>
+                    `;
+                    
+                    });
+                    console.log("Feedback : ",feedbackArray);
+                
+                    appContainer.innerHTML = html;
+        
+                    document.getElementById("for-end").addEventListener("click", function (event) {
+                        event.preventDefault(); // Prevent default link behavior
+                    
+                        let form = document.getElementById("page4");
+                        form.style.position = "absolute";
+                        form.style.top = "75px"; /* Adjust as needed */
+                        form.style.left = "-2045px"; /* Adjust as needed */
+                    });
+                }
+        
+            }
+            });
+        
+        
+        });
+        
+        let stream = null; // To store the webcam stream
+        const videoElement = document.getElementById("webcam");
+        const button = document.getElementById("toggleButton");
+        
+        button.addEventListener("click", async function() {
+            if (!stream) {
+                // Enable Webcam
+                try {
+                    stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                    videoElement.srcObject = stream;
+                    button.textContent = "Disable Webcam";
+                    button.style.backgroundColor = "#dc3545"; // Change button color to red
+                } catch (error) {
+                    console.error("Error accessing the webcam:", error);
+                    alert("Webcam access denied or an error occurred.");
+                }
+            } else {
+                // Disable Webcam
+                let tracks = stream.getTracks();
+                tracks.forEach(track => track.stop()); // Stop all tracks
+                videoElement.srcObject = null;
+                stream = null;
+                button.textContent = "Enable Webcam";
+                button.style.backgroundColor = "#090909"; // Change button color back to green
+            }
+        });
+        const text = "Ace Your Interview Before It Even Starts – Practice Smart, Get Hired Fast.";
+const speed = 100; // Speed of typing in milliseconds
+let index = 0;
+
+function typeWriter() {
+    if (index < text.length) {
+        document.getElementById("typewriter-text").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, speed);
+    }
+}
+
+// Start the typewriter effect
+typeWriter();
+        document.getElementById("please").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+        
+            let form = document.getElementById("page2");
+            form.style.position = "absolute";
+            form.style.top = "50px"; /* Adjust as needed */
+            form.style.left = "0px"; /* Adjust as needed */
+        });
+        
+        document.getElementById("please2").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+        
+            let form = document.getElementById("page2");
+            form.style.position = "absolute";
+            form.style.top = "50px"; /* Adjust as needed */
+            form.style.left = "-2070px"; /* Adjust as needed */
+        });
+        
+        document.getElementById("mockInterviewForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+        });
+        
+    </script>
+</body>
+</html>

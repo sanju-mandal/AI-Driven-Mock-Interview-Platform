@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In / Up page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+  <!-- Sign In Form -->
+  <div class="container" id="signin-form">
+    <h2>Sign into Ace The Job</h2>
+    <p>Welcome back! Please sign in to continue</p>
+    <form id="loginForm">
+      <h4>Enter Email</h4>
+      <input type="email" name="email" placeholder="Email address" required>
+
+      <h4>Enter Password</h4>
+      <input type="password" id="password" name="password" placeholder="Password" required>
+      <i class="toggle-password fas fa-eye" onclick="togglePassword()" id="hide-login"></i>
+
+      <button class="btn-continue" type="submit">Login</button>
+    </form>
+
+    <div class="toggle-buttons">
+      Don't have an account? <button onclick="showSignup()">Sign Up</button>
+    </div>
+  </div>
+
+  <!-- Sign Up Form -->
+  <div class="container2 hidden" id="signup-form">
+    <h2>SignUp to Grab The Opportunities</h2>
+    <p>Welcome! Please fill all the details</p>
+    <form id="signupForm">
+      <h4>Enter Username</h4>
+      <input type="text" name="username" placeholder="Username" required>
+
+      <h4>Enter Email address</h4>
+      <input type="email" name="email" placeholder="Email address" required>
+
+      <h4>Enter Password</h4>
+      <input type="password" id="passw" name="password" placeholder="Password" required>
+      <i class="toggle-passw fas fa-eye" onclick="togglePassw()" id="hide-signup"></i>
+
+      <button class="btn-continue" type="submit">Sign Up</button>
+    </form>
+
+    <div class="toggle-buttons">
+      Already have an account? <button onclick="showSignin()">Sign In</button>
+    </div>
+  </div>
+
+  <script>
+    function togglePassword() {
+      var passwordField = document.getElementById("password");
+      var toggleIcon = document.getElementById("hide-login");
+
+      if (passwordField.type === "password") {
+        passwordField.type = "text";
+        toggleIcon.classList.remove("fa-eye");
+        toggleIcon.classList.add("fa-eye-slash");
+      } else {
+        passwordField.type = "password";
+        toggleIcon.classList.remove("fa-eye-slash");
+        toggleIcon.classList.add("fa-eye");
+      }
+    }
+
+    function togglePassw() {
+      var passwordField = document.getElementById("passw");
+      var toggleIcon = document.getElementById("hide-signup");
+
+      if (passwordField.type === "password") {
+        passwordField.type = "text";
+        toggleIcon.classList.remove("fa-eye");
+        toggleIcon.classList.add("fa-eye-slash");
+      } else {
+        passwordField.type = "password";
+        toggleIcon.classList.remove("fa-eye-slash");
+        toggleIcon.classList.add("fa-eye");
+      }
+    }
+
+    function showSignup() {
+      document.getElementById("signin-form").classList.add("hidden");
+      document.getElementById("signup-form").classList.remove("hidden");
+    }
+
+    function showSignin() {
+      document.getElementById("signup-form").classList.add("hidden");
+      document.getElementById("signin-form").classList.remove("hidden");
+    }
+  
+  document.getElementById("signupForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const username = this.username.value;
+    const email = this.email.value;
+    const password = this.password.value;
+
+    try {
+      const response = await fetch("/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // ✅ Save userId and email in localStorage
+        localStorage.setItem("userId", data.userId);
+        localStorage.setItem("username", username);
+        localStorage.setItem("email", email);
+
+        alert("Signup successful!");
+        window.location.href = "/interview"; // redirect after signup
+      } else {
+        alert("Signup failed: " + data.message);
+      }
+    } catch (error) {
+      console.error("Signup error:", error);
+      alert("Something went wrong. Try again.");
+    }
+  });
+  
+  document.getElementById("loginForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const email = this.email.value;
+    const password = this.password.value;
+
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // ✅ Save userId and email to localStorage
+        localStorage.setItem("userId", data.userId);
+        localStorage.setItem("email", email);
+
+        alert("Login successful!");
+        window.location.href = "/interview"; // redirect to dashboard/interview page
+      } else {
+        alert("Login failed: " + data.message);
+      }
+    } catch (err) {
+      console.error("Error logging in:", err);
+      alert("Something went wrong. Try again!");
+    }
+  });
+  </script>
+
+</body>
+</html>
