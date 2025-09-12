@@ -1,0 +1,388 @@
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f2f5;
+    }
+
+    .container {
+      height: 100vh;
+      max-width: 1300px;
+      min-width: 1300px;
+      display: flex;
+      padding: 100px 40px 40px 40px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .container .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+    
+    }
+
+    .left h1 {
+      font-size: 50px;
+      color: #090909;
+      margin-bottom: 10px;
+      font-weight: 800px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      line-height: 1.2;
+
+    }
+
+    .left p {
+      font-size: 18px;
+      color: #2f2d2d;
+      line-height: 1.6;
+    }
+    .start-btn {
+    display: block; /* Allows margin auto to work */
+    margin: 20px auto 0; /* Top margin + center horizontally */
+    padding: 12px 28px; /* Slightly larger button */
+    font-size: 1rem; /* Optional: Slightly larger text */
+    background: linear-gradient(to right, #6a5acd, #9370db);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: bg 0.3s ease;
+    box-shadow: 0 4px 15px rgba(106, 90, 205, 0.3);
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.start-btn:hover {
+  background: linear-gradient(to right, #5a4dcf, #7f6cd9);
+  box-shadow: 0 6px 20px rgba(106, 90, 205, 0.5);
+}
+
+    .container .right {
+      flex: 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .image-column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .image-column img {
+      width: 280px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      animation: zoom 4s ease-in-out infinite alternate;
+    }
+
+    .image-column img:nth-child(2) {
+      animation-delay: 2s;
+    }
+
+    @keyframes zoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.15); }
+    }
+
+    video {
+      width: 500px;
+      height: 550px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    nav {
+      width: 100%;
+      height: 58px;
+      position: fixed;
+      top: 0;
+      background-color: white;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 1000;
+    }
+    nav h2 {
+      font-weight: bold;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 24px;
+      color: #0e0d0d;
+      top:3px;
+      align-items: left;
+      margin-left: 20px;
+    }
+      
+    .logo1 {
+      width: 100px;
+      height: 58px;
+    }
+
+    #list1 {
+      display: flex;
+      gap: 20px;
+    }
+
+    #list1 li a {
+      font-weight: 500;
+      color: #333;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: black;
+      color: white;
+      padding: 40px 0;
+      width: 100%;
+    }
+
+    .footer-container {
+      display: flex;
+      max-width: 1300px;
+      margin: auto;
+      gap: 20px;
+      padding: 0 40px;
+    }
+
+    .column {
+      flex: 1;
+    }
+
+    .column h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .column p,
+    .column ul {
+      color: gray;
+      font-size: 14px;
+    }
+
+    .column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .column ul li {
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 80px 20px 20px;
+      }
+
+      .left,
+      .right {
+        width: 100%;
+        text-align: center;
+      }
+
+      .right {
+        flex-direction: column;
+      }
+
+      .image-column {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .image-column img {
+        width: 180px;
+        height: 120px;
+      }
+
+      video {
+        width: 90%;
+        height: auto;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media print {
+      .page-break {
+        page-break-before: always;
+      }
+    }
+
+    /* Carousel Card Section */
+    #carousel {
+      display: flex;
+      width: max-content;
+      animation: slide 30s linear infinite;
+      padding: 0 10px;
+    }
+
+    .card {
+      flex: 0 0 auto;
+      width: 280px;
+      height: 360px;
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.5s ease;
+    }
+
+    .card img {
+      width: 80px;  /* Adjust size of image */
+      height: 80px;
+      border-radius: 50%;  /* Make the image round */
+      object-fit: cover;  /* Ensure the image fits well */
+      margin-bottom: 15px; /* Add space between the image and title */
+    }
+    
+    #caceer {
+      width: 230px;
+      height: 190px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 10px; /* Add space between the image and title */
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px; /* Add space between title and description */
+    }
+    
+    .card p {
+      font-size: 0.875rem;
+      color: #555;
+    }
+
+    #carousel {
+      animation: slide 20s linear infinite; /* Adjust the time (30s) to control the speed */
+    }
+    
+    /* Duplicate cards for the sliding effect */
+    #carousel .card:nth-child(6) {
+      animation-delay: -6s; /* Create a delay for duplicate cards */
+    }
+
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-slide {
+      animation: scroll 20s linear infinite;
+    }
+    
+    @media print {
+      .page-break {
+        page-break-before: always;
+      }
+    }
+
+    .company {
+      height: 100vh;
+      background: #f0f2f5;
+      padding: 40px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-section {
+      background: #fdfefed8;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.423);
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .main-title {
+      text-align: center;
+      font-size: 32px;
+      color: #1a1a1a;
+      margin-bottom: 30px;
+      font-weight: 700;
+      background: linear-gradient(to right, #01020bd5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .logo-item {
+      width: 100px;
+      height: 100px;
+      background: #fff;
+      border-radius: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(4, 3, 3, 0.33);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo-item img {
+      max-width: 60%;
+      max-height: 60%;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(2, 2, 2, 0.174);
+    }
+
+    .logo-item:hover img {
+      transform: scale(1.1);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .logo-item {
+        width: 80px;
+        height: 80px;
+      }
+
+      .main-title {
+        font-size: 24px;
+      }
+
+      .logo-section h2 {
+        font-size: 20px;
+      }
+    }
+
+    
