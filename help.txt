@@ -1,0 +1,12 @@
+step 1: Install
+1.node
+2.express
+3.mysql(xamp)
+
+step 2: to run/connect database
+on xamp control panel
+start apache and mysql
+
+step 3: run project
+run command : nodemon app.js
+click on the link of localhost
